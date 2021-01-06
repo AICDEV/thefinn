@@ -19,11 +19,11 @@ def build_vigenere_square():
     return v_square
 
 def parse_message(message):
-    message = message.strip().replace(" ", "")
     message = message.replace("\n", "")
-
+    
     message = message.upper()
-    return re.sub('[\W]', '', message)
+    message = re.sub(r'\s+', ' ', message)
+    return re.sub(r'[!@&$%.,"&()]', '', message)
 
 
 def decrypt(message, key_length, key):
@@ -34,13 +34,14 @@ def decrypt(message, key_length, key):
     for i in range(0, len(message), key_length):
         fragment = message[i:i+key_length]
         for a in range(0, len(fragment)):
+            try:
+                dec_char_key_row = v_square[UPPER_DICT.index(key[a].upper())]
+                dec_char_index = dec_char_key_row.index(fragment[a])
+                dec_char = UPPER_DICT[dec_char_index]
 
-            dec_char_key_row = v_square[UPPER_DICT.index(key[a].upper())]
-            dec_char_index = dec_char_key_row.index(fragment[a])
-            dec_char = UPPER_DICT[dec_char_index]
-
-            dec_message += dec_char
-        dec_message += " "
+                dec_message += dec_char
+            except:
+                dec_message += fragment[a]
 
     return dec_message
 
