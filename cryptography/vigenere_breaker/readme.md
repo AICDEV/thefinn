@@ -1,6 +1,6 @@
-#vigenere breaker demo
+# vigenere breaker demo
 
-##encode
+## encode
 
 to simply encode a text with the vigenere cipher, run the the scrypt vigenere.py:
 
