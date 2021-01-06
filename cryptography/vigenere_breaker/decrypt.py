@@ -22,8 +22,7 @@ def parse_message(message):
     message = message.replace("\n", "")
     
     message = message.upper()
-    message = re.sub(r'\s+', ' ', message)
-    return re.sub(r'[!@&$%.,"&()]', '', message)
+    return re.sub(r'\W', '', message)
 
 
 def decrypt(message, key_length, key):
