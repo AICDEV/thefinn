@@ -5,6 +5,26 @@ import re
 
 UPPER_DICT = list(string.ascii_uppercase)
 
+def get_char_frequencies(encrypted_text):
+    frequency_char_object = {}
+    for char in encrypted_text:
+        if ord(char) != 32:
+            if char in frequency_char_object:
+                frequency_char_object[char] += 1
+            else:
+                frequency_char_object[char] = 1
+
+    return sorted(frequency_char_object.items(), key=lambda item: item[1], reverse=True)
+
+def rotate(char, key):
+    try:
+        origin = UPPER_DICT.index(char.lower())
+        target = origin + key
+
+        return UPPER_DICT[(target % len(UPPER_DICT))]
+    except:
+        return char
+
 def get_rotated_alphabet(r):
     return UPPER_DICT[r:] + UPPER_DICT[:r]
 
