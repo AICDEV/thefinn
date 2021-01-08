@@ -2,7 +2,6 @@ import re
 import math
 
 TOP_ENGLISH_LETTERS = ["E","T","A","O","I","N"]
-LEAST_ENGLISH_LETTERS = ["V","K","J","X","Q","Z"]
 
 def clean_text(text):
     return re.sub(r'\W', '', text)
