@@ -21,8 +21,7 @@ def sort_dict(target):
     return sorted(target.items(), key=lambda item: item[1], reverse=True)
 
 def get_score(letter_dict):
-    head = letter_dict[0:6]
-    tail = letter_dict[len(letter_dict)-6:len(letter_dict)]
+    head = letter_dict[0:5]
 
     score = 0
 
@@ -30,10 +29,4 @@ def get_score(letter_dict):
         for ch in TOP_ENGLISH_LETTERS:
             if str(el[0]).upper() == ch:
                 score += 1
-
-    for el in tail:
-        for ch in LEAST_ENGLISH_LETTERS:
-            if str(el[0]).upper() == ch:
-                score += 1
-
     return score
