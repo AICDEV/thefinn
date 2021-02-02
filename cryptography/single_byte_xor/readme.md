@@ -9,4 +9,4 @@ Please make sure that the encrypted message is in hex encoding.
 To quickly create a test message, here is a recipe on Cyberchef: <https://cyberchef.nullteilerfrei.de/#recipe=XOR(%7B'option':'UTF8','string':'R'%7D,'Standard',false)To_Hex('None',0)>
 
 ## train other languages
-I have chosen 2 novels in english language for training. But you can also simply put any text files into the directory /data to train e.g. German or Spanish. Make sure to update ```refTextFiles := [2]string{"./data/the_adeventure_of_sherlock_holmes.txt", "./data/pride_and_prejudice.txt"} ``` this line of code to your new text files.
+I have chosen 2 novels in english language for training. But you can also simply put any text files into the directory /data to train e.g. German or Spanish. Make sure to update ```refTextFiles := [2]string{"./data/the_adeventure_of_sherlock_holmes.txt", "./data/pride_and_prejudice.txt"} ``` this line of code in /cmd/xor.go to your new text files.
